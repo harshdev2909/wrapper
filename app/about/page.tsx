@@ -71,7 +71,7 @@ export default function AboutPage() {
               initial="initial"
               animate="animate"
             >
-              I'm Alex. A software developer, innovator, and problem solver.
+              I'm Apurv. A software developer, innovator, and problem solver.
             </motion.h2>
             <div className="space-y-6 text-lg font-light leading-relaxed text-gray-200">
               <motion.p variants={textVariants} initial="initial" animate="animate" transition={{ delay: 0.1 }}>
