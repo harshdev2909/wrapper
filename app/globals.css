@@ -19,9 +19,9 @@ body {
     --card-foreground: 0 0% 20%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
-    --primary: 262 40% 60%; /* Purple for gradients */
+    --primary: 262 50% 65%; /* Purple for gradients */
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 40% 60%; /* Blue for gradients */
+    --secondary: 240 50% 65%; /* Blue for gradients */
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 90%;
     --muted-foreground: 0 0% 40%;
@@ -31,8 +31,8 @@ body {
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 80%;
     --input: 0 0% 80%;
-    --ring: 262 40% 60%;
-    --radius: 0.75rem; /* Increased for softer corners */
+    --ring: 262 50% 65%;
+    --radius: 0.75rem; /* Softer corners */
 
     /* Custom gradient for light mode */
     --gradient-start: 262 50% 65%;
@@ -43,35 +43,35 @@ body {
   .dark {
     --background: 0 0% 0%; /* Pure black for dark mode */
     --foreground: 0 0% 95%; /* Near white for contrast */
-    --card: 0 0% 10%;
+    --card: 0 0% 0%; /* Pure black */
     --card-foreground: 0 0% 95%;
-    --popover: 0 0% 10%;
+    --popover: 0 0% 0%; /* Pure black */
     --popover-foreground: 0 0% 95%;
     --primary: 262 50% 75%; /* Brighter purple for dark mode */
     --primary-foreground: 0 0% 20%;
     --secondary: 240 50% 75%; /* Brighter blue for dark mode */
     --secondary-foreground: 0 0% 20%;
-    --muted: 0 0% 20%;
+    --muted: 0 0% 0%; /* Pure black */
     --muted-foreground: 0 0% 60%;
-    --accent: 0 0% 20%;
+    --accent: 0 0% 0%; /* Pure black */
     --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 95%;
     --border: 0 0% 25%;
     --input: 0 0% 25%;
     --ring: 262 50% 75%;
+    --radius: 0.75rem;
 
     /* Custom gradient for dark mode */
     --gradient-start: 262 50% 55%;
     --gradient-via: 240 50% 55%;
-    --gradient-end: 0 0% 10%;
+    --gradient-end: 0 0% 0%; /* Pure black */
   }
 
-  /* Page-specific background for ProjectPage light theme */
   
 
   .dark .project-page-light {
-    background: hsl(var(--background)); /* Use --background (black) in dark mode */
+    background: hsl(var(--background)); /* Pure black in dark mode */
   }
 
   /* Enhanced background gradient animation */

@@ -51,10 +51,10 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[hsl(var(--background))] animated-bg p-6 md:p-12 lg:p-16">
+    <main className="min-h-screen bg-[hsl(var(--background))]  p-6 md:p-12 lg:p-16">
       <div className="max-w-7xl mx-auto relative">
         {/* Theme Toggle Button */}
-        <div className=" top-0 right-2">
+        <div className="top-0 right-0">
           <ThemeToggle />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -69,7 +69,7 @@ export default function Home() {
               Apurv Gaikwad
             </h1>
             <p className="text-lg md:text-xl font-light text-[hsl(var(--foreground))] leading-relaxed">
-            Data Scientist / DevOps / <br />
+              Data Scientist / DevOps / <br />
               Software Developer and Engineer.
             </p>
             <p className="text-lg md:text-xl font-light text-[hsl(var(--foreground))] leading-relaxed">

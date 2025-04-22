@@ -61,7 +61,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[hsl(var(--background))] animated-bg text-[hsl(var(--foreground))] p-6 md:p-12 lg:p-16">
+    <main className="min-h-screen bg-[hsl(var(--background))]  text-[hsl(var(--foreground))] p-6 md:p-12 lg:p-16">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
           {/* Left Section */}

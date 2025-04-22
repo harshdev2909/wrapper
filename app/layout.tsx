@@ -58,7 +58,7 @@ export default function RootLayout({
               </Link>
             </div>
             <div className="flex flex-col items-center gap-8">
-              <ThemeToggle /> {/* Use the client component */}
+             
               <div
                 className="rotate-180 text-xs tracking-widest"
                 style={{ writingMode: "vertical-rl" }}
