@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ThemeToggle from "./ThemeToggle";
 
 // Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -11,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   // GSAP animations on mount
   useEffect(() => {
-    // Left section animation (fade in and slide up)
     gsap.fromTo(
       ".left-section",
       { opacity: 0, y: 50 },
@@ -27,7 +27,6 @@ export default function Home() {
       }
     );
 
-    // Right section animation (fade in and slide up)
     gsap.fromTo(
       ".right-section",
       { opacity: 0, y: 50 },
@@ -52,8 +51,12 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black p-6 md:p-12 lg:p-16">
-      <div className="max-w-7xl mx-auto">
+    <main className="min-h-screen bg-[hsl(var(--background))] animated-bg p-6 md:p-12 lg:p-16">
+      <div className="max-w-7xl mx-auto relative">
+        {/* Theme Toggle Button */}
+        <div className=" top-0 right-2">
+          <ThemeToggle />
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Section */}
           <motion.div
@@ -62,19 +65,28 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))]">
               Apurv Gaikwad
             </h1>
-            <p className="text-lg md:text-xl font-light text-gray-200 leading-relaxed">
-              Product Designer / Webflow Developer / <br />
-              software Developer and engineer.
+            <p className="text-lg md:text-xl font-light text-[hsl(var(--foreground))] leading-relaxed">
+            Data Scientist / DevOps / <br />
+              Software Developer and Engineer.
             </p>
-            <p className="text-lg md:text-xl font-light text-gray-200 leading-relaxed">
-              Currently working full-time as a software developer 
-               at{" "}
-              <Link href="#" className="underline text-blue-400 hover:text-blue-300 transition-colors">
-                IIT chicago
-              </Link>
+            <p className="text-lg md:text-xl font-light text-[hsl(var(--foreground))] leading-relaxed">
+              Currently working full-time as a software developer at{" "}
+              <motion.span
+                variants={linkVariants}
+                initial="initial"
+                animate="animate"
+                whileHover="hover"
+              >
+                <Link
+                  href="#"
+                  className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] hover:from-[hsl(var(--secondary))] hover:to-[hsl(var(--primary))] transition-all duration-300"
+                >
+                  IIT Chicago
+                </Link>
+              </motion.span>
             </p>
           </motion.div>
 
@@ -86,7 +98,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="grid grid-cols-1 gap-4">
-              {["WORK", "ABOUT","CONTACT"].map((item, index) => (
+              {["WORK", "ABOUT", "CONTACT"].map((item, index) => (
                 <motion.div
                   key={item}
                   variants={linkVariants}
@@ -96,7 +108,7 @@ export default function Home() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Link href={`/${item.toLowerCase()}`} className="group">
-                    <h2 className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-serif leading-[1.15] bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500 group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-300">
+                    <h2 className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-serif leading-[1.15] bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] group-hover:from-[hsl(var(--secondary))] group-hover:to-[hsl(var(--primary))] transition-all duration-300">
                       {item}
                     </h2>
                   </Link>

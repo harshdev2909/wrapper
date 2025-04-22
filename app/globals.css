@@ -2,21 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 26, 26, 26;
-  --background-rgb: 245, 243, 239;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @layer base {
@@ -24,48 +13,104 @@ body {
     --font-playfair: "Playfair Display", serif;
     --font-inter: "Inter", sans-serif;
 
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --background: 0 0% 100%; /* White for Home, ContactPage, AboutPage, WorkPage */
+    --foreground: 0 0% 20%; /* Near black for contrast */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 0 0% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 262 40% 60%; /* Purple for gradients */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 40% 60%; /* Blue for gradients */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 20%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 80%;
+    --input: 0 0% 80%;
+    --ring: 262 40% 60%;
+    --radius: 0.75rem; /* Increased for softer corners */
+
+    /* Custom gradient for light mode */
+    --gradient-start: 262 50% 65%;
+    --gradient-via: 240 50% 65%;
+    --gradient-end: 0 0% 95%;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 0 0% 0%; /* Pure black for dark mode */
+    --foreground: 0 0% 95%; /* Near white for contrast */
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 262 50% 75%; /* Brighter purple for dark mode */
+    --primary-foreground: 0 0% 20%;
+    --secondary: 240 50% 75%; /* Brighter blue for dark mode */
+    --secondary-foreground: 0 0% 20%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 262 50% 75%;
+
+    /* Custom gradient for dark mode */
+    --gradient-start: 262 50% 55%;
+    --gradient-via: 240 50% 55%;
+    --gradient-end: 0 0% 10%;
+  }
+
+  /* Page-specific background for ProjectPage light theme */
+  
+
+  .dark .project-page-light {
+    background: hsl(var(--background)); /* Use --background (black) in dark mode */
+  }
+
+  /* Enhanced background gradient animation */
+  .animated-bg {
+    background: linear-gradient(
+      60deg,
+      hsl(var(--background)),
+      hsl(var(--gradient-start) / 0.15),
+      hsl(var(--gradient-via) / 0.15),
+      hsl(var(--gradient-end) / 0.1),
+      hsl(var(--background))
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 12s ease infinite;
+  }
+
+  .dark .animated-bg {
+    background: linear-gradient(
+      60deg,
+      hsl(var(--background)),
+      hsl(var(--gradient-start) / 0.25),
+      hsl(var(--gradient-via) / 0.25),
+      hsl(var(--gradient-end) / 0.2),
+      hsl(var(--background))
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 12s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 
@@ -74,12 +119,87 @@ body {
     @apply border-border;
   }
   body {
-    @apply antialiased;
+    @apply antialiased tracking-[0.01em]; /* Subtle letter-spacing */
   }
   .font-serif {
     font-family: var(--font-playfair);
+    line-height: 1.4; /* Improved readability */
   }
   body {
     font-family: var(--font-inter);
+    line-height: 1.6; /* Enhanced readability */
+  }
+
+  /* Theme toggle styling with glow effect */
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: hsl(var(--foreground));
+    transition: color 0.3s ease, transform 0.2s ease;
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    position: relative;
+  }
+  .theme-toggle:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  .theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    box-shadow: 0 0 8px 2px hsl(var(--primary) / 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  .theme-toggle:hover::after {
+    opacity: 1;
+  }
+
+  /* Focus states for accessibility */
+  .theme-toggle:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Card and section styling */
+  .card, .contact-section, .left-section, .right-section {
+    box-shadow: 0 4px 12px hsl(var(--border) / 0.2);
+    border-radius: var(--radius);
+    transition: box-shadow 0.3s ease;
+  }
+  .card:hover, .contact-section:hover, .left-section:hover, .right-section:hover {
+    box-shadow: 0 6px 16px hsl(var(--border) / 0.3);
+  }
+
+  /* Links and buttons */
+  a, button {
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+  }
+  a:hover, button:hover {
+    transform: translateY(-1px);
+  }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Responsive typography */
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+    .theme-toggle {
+      padding: 0.5rem;
+      font-size: 1.25rem;
+    }
   }
 }

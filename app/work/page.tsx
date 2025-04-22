@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ThemeToggle from "../ThemeToggle";
 
 // Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -11,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function WorkPage() {
   // GSAP animations on mount
   useEffect(() => {
-    // Left section animation (fade in and slide up)
     gsap.fromTo(
       ".left-section",
       { opacity: 0, y: 50 },
@@ -27,7 +27,6 @@ export default function WorkPage() {
       }
     );
 
-    // Right section animation (fade in and slide up)
     gsap.fromTo(
       ".right-section",
       { opacity: 0, y: 50 },
@@ -52,8 +51,12 @@ export default function WorkPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white p-6 md:p-12 lg:p-16">
-      <div className="max-w-7xl mx-auto">
+    <main className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] p-6 md:p-12 lg:p-16">
+      <div className="max-w-7xl mx-auto relative">
+        {/* Theme Toggle Button */}
+        <div className="  top-0 right-0">
+          <ThemeToggle />
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
           {/* Left Section */}
           <motion.div
@@ -62,14 +65,14 @@ export default function WorkPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))]">
               WORK
             </h1>
-            <p className="text-lg md:text-xl font-light leading-relaxed text-gray-200">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-[hsl(var(--foreground))]">
               This is a showcase of my best work in a variety of fields including A.I and Web Design, full stack
               Development, Product Design and Product Management.
             </p>
-            <p className="text-lg md:text-xl font-light leading-relaxed text-gray-200">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-[hsl(var(--foreground))]">
               The world of digital design and development is constantly evolving and so has my role over the last 3
               years. I'm still learning and gaining new skills every day.
             </p>
@@ -92,13 +95,14 @@ export default function WorkPage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link href={`/work/${project.id}`} className="block group">
-                  <h2 className="text-[4rem] md:text-[5rem] lg:text-[7rem] font-serif leading-[1.85] bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500 group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-300">
+                  <h2 className="text-[4rem] md:text-[5rem] lg:text-[7rem] font-serif leading-[1.85] bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] group-hover:from-[hsl(var(--secondary))] group-hover:to-[hsl(var(--primary))] transition-all duration-300">
                     {project.title}
                   </h2>
                   <div className="flex items-center mt-2">
-                    <span className="text-sm uppercase tracking-wider text-gray-400">– {project.type}</span>
+                    <span className="text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))]">– {project.type}</span><br/> <br/>
+                    <span className="text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))]">– {project.disc}</span>
                     {project.isNew && (
-                      <span className="ml-4 px-2 py-0.5 text-xs uppercase tracking-wider bg-gradient-to-r from-purple-400 to-blue-400 text-white rounded-full">
+                      <span className="ml-4 px-2 py-0.5 text-xs uppercase tracking-wider bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] text-[hsl(var(--primary-foreground))] rounded-full">
                         NEW
                       </span>
                     )}
@@ -119,11 +123,13 @@ const projects = [
     title: "ApurvA.I",
     type: "Full stack development",
     isNew: false,
+    disc : "ApurvA.I is a full-stack AI powered web application",
   },
   {
     id: "c-garage",
     title: "C-garage",
     type: "Full stack development",
     isNew: true,
-  }
+    disc : "C-Garage is a full-stack car rental web application",
+  },
 ];

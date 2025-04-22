@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ThemeToggle from "../../ThemeToggle";
 
 // Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -42,7 +43,6 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
 
   // GSAP animations on mount
   useEffect(() => {
-    // Header section animation
     gsap.fromTo(
       ".header-section",
       { opacity: 0, y: 50 },
@@ -58,7 +58,6 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       }
     );
 
-    // Description section animation
     gsap.fromTo(
       ".description-section",
       { opacity: 0, y: 50 },
@@ -74,7 +73,6 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       }
     );
 
-    // Image and text sections animation
     gsap.fromTo(
       ".image-text-section",
       { opacity: 0, y: 50 },
@@ -90,7 +88,6 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       }
     );
 
-    // Live link section animation
     gsap.fromTo(
       ".live-link-section",
       { opacity: 0, y: 50 },
@@ -120,8 +117,13 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
   };
 
   return (
-    <main className="flex min-h-screen flex-col bg-gradient-to-br from-purple-900 via-blue-900 to-black text-white pt-24 md:pt-32 pb-16">
-      <div className="container mx-auto px-6 md:px-8">
+    <main className="flex min-h-screen flex-col project-page-light text-[hsl(var(--foreground))] pt-24 md:pt-32 pb-16">
+      <div className="container mx-auto px-6 md:px-8 relative">
+        {/* Theme Toggle Button */}
+        <div className="absolute top-0 right-0">
+          <ThemeToggle />
+        </div>
+
         {/* Back Link */}
         <motion.div
           className="header-section mb-12"
@@ -132,7 +134,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         >
           <Link
             href="/work"
-            className="inline-flex items-center text-sm font-light bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400 hover:from-blue-400 hover:to-purple-400 transition-all duration-300"
+            className="inline-flex items-center text-sm font-light bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] hover:from-[hsl(var(--secondary))] hover:to-[hsl(var(--primary))] transition-all duration-300"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Work
@@ -146,10 +148,10 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           initial="initial"
           animate="animate"
         >
-          <h1 className="text-3xl md:text-4xl font-light tracking-wider mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+          <h1 className="text-3xl md:text-4xl font-light tracking-wider mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))]">
             {project.title}
           </h1>
-          <p className="text-lg text-neutral-400">{project.category}</p>
+          <p className="text-lg text-[hsl(var(--muted-foreground))]">{project.category}</p>
         </motion.div>
 
         {/* Project Description */}
@@ -159,7 +161,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           initial="initial"
           animate="animate"
         >
-          <p className="text-lg font-light max-w-3xl text-gray-200">{project.description}</p>
+          <p className="text-lg font-light max-w-3xl text-[hsl(var(--foreground))]">{project.description}</p>
         </motion.div>
 
         {/* Images and Text Sections */}
@@ -178,14 +180,14 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                   src={image || "/placeholder.svg"}
                   alt={`Project image ${index + 1}`}
                   fill
-                  className="object-cover rounded-lg"
+                  className="object-cover rounded-lg border-[hsl(var(--border))]"
                 />
               </div>
               <div className="max-w-3xl">
-                <h3 className="text-xl font-light mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+                <h3 className="text-xl font-light mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))]">
                   {project.details[index].title}
                 </h3>
-                <p className="text-base font-light text-gray-200">{project.details[index].text}</p>
+                <p className="text-base font-light text-[hsl(var(--foreground))]">{project.details[index].text}</p>
               </div>
             </motion.div>
           ))}
@@ -202,7 +204,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
             href={project.liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 text-sm font-light bg-gradient-to-r from-purple-400 to-blue-400 text-white rounded-lg hover:from-blue-400 hover:to-purple-400 transition-all duration-300"
+            className="inline-block px-6 py-3 text-sm font-light bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] text-[hsl(var(--primary-foreground))] rounded-lg hover:from-[hsl(var(--secondary))] hover:to-[hsl(var(--primary))] transition-all duration-300"
           >
             View Live Project
           </Link>
