@@ -54,7 +54,7 @@ export default function WorkPage() {
     <main className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] p-6 md:p-12 lg:p-16">
       <div className="max-w-7xl mx-auto relative">
         {/* Theme Toggle Button */}
-        <div className="  top-0 right-0">
+        <div className="top-0 right-0">
           <ThemeToggle />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
@@ -98,14 +98,25 @@ export default function WorkPage() {
                   <h2 className="text-[4rem] md:text-[5rem] lg:text-[7rem] font-serif leading-[1.85] bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] group-hover:from-[hsl(var(--secondary))] group-hover:to-[hsl(var(--primary))] transition-all duration-300">
                     {project.title}
                   </h2>
-                  <div className="flex items-center mt-2">
-                    <span className="text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))]">– {project.type}</span><br/> <br/>
+                  <div className="flex items-center mt-2 space-x-4">
+                    <span className="text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))]">– {project.type}</span>
                     <span className="text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))]">– {project.disc}</span>
                     {project.isNew && (
                       <span className="ml-4 px-2 py-0.5 text-xs uppercase tracking-wider bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] text-[hsl(var(--primary-foreground))] rounded-full">
                         NEW
                       </span>
                     )}
+                  </div>
+                  {/* Tech Stack Section */}
+                  <div className="mt-4 flex flex-wrap space-x-2">
+                    {project.techStack.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 text-xs font-semibold uppercase tracking-wide border border-gray-300 dark:border-gray-600 bg-gray-200/50 dark:bg-gray-800/50 rounded-full text-gray-800 dark:text-gray-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </Link>
               </motion.div>
@@ -123,13 +134,15 @@ const projects = [
     title: "ApurvA.I",
     type: "Full stack development",
     isNew: false,
-    disc : "ApurvA.I is a full-stack AI powered web application",
+    disc: "ApurvA.I is a full-stack AI powered web application",
+    techStack: ["Python", "Langchain", "NextJs", "Gemini", "Transforms", "FastAPI", "TailwindCSS", " PostgreSQL", "GitHub"],
   },
   {
     id: "c-garage",
     title: "C-garage",
     type: "Full stack development",
     isNew: true,
-    disc : "C-Garage is a full-stack car rental web application",
+    disc: "C-Garage is a full-stack car rental web application",
+    techStack: ["Next.js", "TypeScript", "Express", "MongoDB", "TailwindCSS", "Node.js", "Razorpay", "GitHub"],
   },
 ];

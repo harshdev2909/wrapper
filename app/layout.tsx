@@ -47,7 +47,14 @@ export default function RootLayout({
                 className="rotate-180 text-xs tracking-widest uppercase"
                 style={{ writingMode: "vertical-rl" }}
               >
-                WORK
+                PROJECTS
+              </Link>
+              <Link
+                href="/skills"
+                className="rotate-180 text-xs tracking-widest uppercase"
+                style={{ writingMode: "vertical-rl" }}
+              >
+                SKILLS
               </Link>
               <Link
                 href="/about"

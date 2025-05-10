@@ -87,7 +87,7 @@ export default function AboutPage() {
               animate="animate"
               transition={{ delay: 0.2 }}
             >
-              I'm Apurv. A software developer, innovator, and problem solver.
+              {/* I'm Apurv. A software developer, innovator, and problem solver. */}
             </motion.h2>
             <div className="space-y-6 text-lg font-light leading-relaxed text-[hsl(var(--foreground))]">
               <motion.p
@@ -97,9 +97,7 @@ export default function AboutPage() {
                 whileHover="hover"
                 transition={{ delay: 0.4 }}
               >
-                My journey in software development began with writing my first Python script, and since then, I've been
-                hooked on building solutions that make an impact. From full-stack web applications to AI-driven platforms,
-                I thrive on turning complex problems into elegant, scalable code.
+                Hello, I’m Apurv Gaikwad an engineer at the intersection of cloud technologies, data science, and software quality assurance. My journey into the world of tech started with a fascination for how things work, leading me to explore and master the tools that shape modern applications. Over the years, I’ve evolved from writing basic scripts to architecting scalable systems and building intelligent, data-driven solutions.
               </motion.p>
               <motion.p
                 variants={paragraphVariants}
@@ -108,10 +106,8 @@ export default function AboutPage() {
                 whileHover="hover"
                 transition={{ delay: 0.6 }}
               >
-                Over the years, I've worked with technologies like Node.js, React, Python, LangChain, PyTorch, and APIs
-                like Grok API to create projects ranging from car rental platforms to AI course generators. My experience
-                spans front-end development, back-end systems, and machine learning, with a passion for integrating AI to
-                enhance user experiences.
+                My focus is on using cloud platforms like AWS to build powerful infrastructures, applying data science to generate meaningful insights, and ensuring the software I create meets the highest quality standards. I’m passionate about harnessing the potential of AI and machine learning to elevate user experiences, and I take pride in building solutions that not only work but thrive in real-world environments.
+
               </motion.p>
               <motion.p
                 variants={paragraphVariants}
@@ -120,9 +116,8 @@ export default function AboutPage() {
                 whileHover="hover"
                 transition={{ delay: 0.8 }}
               >
-                What drives me as a developer is crafting software that solves real-world problems, whether it's helping
-                users rent a car seamlessly or guiding learners through personalized AI roadmaps. I’m also an active
-                contributor to open-source projects, believing in the power of collaboration to push technology forward.
+                In my career, I’ve had the privilege of working across multiple domains from full-stack development to implementing automated testing and ensuring system reliability at scale. I approach each project with a mindset of continuous learning, always staying ahead of industry trends and applying the latest technologies to solve complex challenges.
+
               </motion.p>
             </div>
             <motion.div
@@ -134,10 +129,13 @@ export default function AboutPage() {
               transition={{ delay: 1.0 }}
             >
               <p className="text-lg font-light text-[hsl(var(--foreground))]">
-                This is one of my favorite quotes (by Linus Torvalds):
+                
+I believe technology is a tool for making the world a better place, and my goal is to create software that has a lasting, positive impact. When I’m not coding, I’m exploring new advancements in tech, traveling, and embracing diverse perspectives.
+
+
               </p>
               <blockquote className="text-3xl md:text-4xl font-serif leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))]">
-                "Talk is cheap. Show me the code."
+                "If you're looking to collaborate on impactful projects or explore new solutions, let’s connect and create something extraordinary."
               </blockquote>
             </motion.div>
           </motion.div>

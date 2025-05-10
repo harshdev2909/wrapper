@@ -68,26 +68,19 @@ export default function Home() {
             <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))]">
               Apurv Gaikwad
             </h1>
-            <p className="text-lg md:text-xl font-light text-[hsl(var(--foreground))] leading-relaxed">
+            <p className="text-2xl md:text-4xl font-light text-[hsl(var(--foreground))] leading-relaxed">
               Data Scientist / DevOps / <br />
               Software Developer and Engineer.
             </p>
-            <p className="text-lg md:text-xl font-light text-[hsl(var(--foreground))] leading-relaxed">
-              Currently working full-time as a software developer at{" "}
-              <motion.span
-                variants={linkVariants}
-                initial="initial"
-                animate="animate"
-                whileHover="hover"
-              >
-                <Link
-                  href="#"
-                  className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] hover:from-[hsl(var(--secondary))] hover:to-[hsl(var(--primary))] transition-all duration-300"
-                >
-                  IIT Chicago
-                </Link>
-              </motion.span>
-            </p>
+            <motion.p
+              className="text-lg md:text-xl font-light text-transparent bg-clip-text bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: "easeOut" } }}
+            >
+              As a software engineer, I harness the power of AWS, data science, and software quality assurance to craft systems that are not only scalable but also intelligent and reliable. I design cloud-based infrastructures, build data-driven solutions, and ensure software meets the highest standards of quality and performance. Driven by curiosity and a commitment to innovation, I’m always exploring new ways to automate, optimize, and solve complex problems. Let’s collaborate and create something impactful
+            </motion.p>
           </motion.div>
 
           {/* Right Section */}
