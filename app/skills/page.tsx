@@ -100,14 +100,14 @@ export default function SkillsPage() {
           <h1 className="text-[5rem] md:text-[8rem] font-serif leading-[0.85]">
             Skills
           </h1>
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={toggleDarkMode}
             className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold hover:animate-pulse"
           >
             {isDarkMode ? "Light Mode" : "Dark Mode"}
-          </motion.button>
+          </motion.button> */}
         </div>
         <div className="space-y-16">
           {skills.map((skillCategory, index) => (
