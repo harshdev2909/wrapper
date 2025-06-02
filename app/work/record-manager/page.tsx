@@ -76,7 +76,7 @@ const VehicleProjectPage = () => {
                 {/* Call to Action */}
                 <div className="mt-6 flex justify-center">
                     <a
-                        href="https://github.com"
+                        href="https://github.com/ApurvGaikwad0/Record_Manager"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-6 py-3 bg-green-500 dark:bg-green-600 text-white rounded-lg shadow-lg hover:bg-green-600 dark:hover:bg-green-700 transition-transform transform hover:scale-105"
