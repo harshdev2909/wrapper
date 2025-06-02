@@ -95,7 +95,7 @@ export default function WorkPage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link href={`/work/${project.id}`} className="block group">
-                  <h2 className="text-[4rem] md:text-[5rem] lg:text-[7rem] font-serif leading-[1.85] bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] group-hover:from-[hsl(var(--secondary))] group-hover:to-[hsl(var(--primary))] transition-all duration-300">
+                  <h2 className="text-[4rem] md:text-[5rem] lg:text-[5rem] font-serif leading-[1.85] bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))] group-hover:from-[hsl(var(--secondary))] group-hover:to-[hsl(var(--primary))] transition-all duration-300">
                     {project.title}
                   </h2>
                   <div className="flex items-center mt-2 space-x-4">
@@ -128,14 +128,14 @@ export default function WorkPage() {
   );
 }
 
-const projects = [
+const projects =[
   {
     id: "apurvA.I",
     title: "ApurvA.I",
     type: "Full stack development",
     isNew: false,
     disc: "ApurvA.I is a full-stack AI powered web application",
-    techStack: ["Python", "Langchain", "NextJs", "Gemini", "Transforms", "FastAPI", "TailwindCSS", " PostgreSQL", "GitHub"],
+    techStack: ["Python", "Langchain", "NextJs", "Gemini", "Transforms", "FastAPI", "TailwindCSS", "PostgreSQL", "GitHub"]
   },
   {
     id: "c-garage",
@@ -143,6 +143,78 @@ const projects = [
     type: "Full stack development",
     isNew: true,
     disc: "C-Garage is a full-stack car rental web application",
-    techStack: ["Next.js", "TypeScript", "Express", "MongoDB", "TailwindCSS", "Node.js", "Razorpay", "GitHub"],
+    techStack: ["Next.js", "TypeScript", "Express", "MongoDB", "TailwindCSS", "Node.js", "Razorpay", "GitHub"]
   },
-];
+  {
+    id: "vehicle",
+    title: "Vehicle Explorer",
+    type: "Full stack App development",
+    isNew: true,
+    disc: "A Flutter mobile application that retrieves and displays vehicle manufacturers",
+    techStack: ["Flutter", "Dart", "NHTSA vPIC REST API", "HTTP (Flutter package)", "Provider", "SharedPreferences", "Hive", "Git", "GitHub"]
+  },
+  {
+    id: "bplus-tree",
+    title: "B+ Tree Manager",
+    type: "Systems Programming",
+    isNew: false,
+    disc: "Simplified B⁺ tree index manager with support for creation, insertion, deletion, search, and sorted key scanning",
+    techStack: ["C", "Data Structures", "File I/O", "GitHub"]
+  },
+  {
+    id: "growbud",
+    title: "Grow Bud",
+    type: "AI Mobile App",
+    isNew: false,
+    disc: "AI-driven plant care app with photo analysis, climate-based recommendations, and eco-friendly gardening metrics",
+    techStack: ["Flutter", "Dart", "TensorFlow Lite", "Firebase", "REST API", "GitHub"]
+  },
+  {
+    id: "ecosound",
+    title: "EcoSound Festival Travel Analysis",
+    type: "Data Science",
+    isNew: false,
+    disc: "Recognized by UK Government, uses Power BI and R/XGBoost for low-carbon travel recommendations based on emissions data",
+    techStack: ["R", "Power BI", "XGBoost", "Pandas", "GitHub"]
+  },
+  {
+    id: "record-manager",
+    title: "Record Manager",
+    type: "Systems Programming",
+    isNew: false,
+    disc: "Manages fixed-schema tables with support for insert, delete, update, and scanning using a tombstone mechanism",
+    techStack: ["C", "File Systems", "Custom Storage Engine", "GitHub"]
+  },
+  {
+    id: "buffer-manager",
+    title: "Buffer Manager",
+    type: "Systems Programming",
+    isNew: false,
+    disc: "Handles multiple buffer pools with FIFO and LRU page replacement strategies",
+    techStack: ["C", "Memory Management", "LRU/FIFO Algorithms", "GitHub"]
+  },
+  {
+    id: "storage-manager",
+    title: "Storage Manager",
+    type: "Systems Programming",
+    isNew: false,
+    disc: "Manages page files with fixed-size pages, including creation, reading, writing, and deletion operations",
+    techStack: ["C", "File I/O", "Page Management", "GitHub"]
+  },
+  {
+    id: "stock-predictor",
+    title: "Stock Market Prediction",
+    type: "ML + Web App",
+    isNew: false,
+    disc: "LSTM-based stock market prediction with real-time analysis and interactive web UI",
+    techStack: ["Python", "LSTM", "Flask", "React", "Pandas", "Matplotlib", "GitHub"]
+  },
+  {
+    id: "nonprofit-network",
+    title: "NonprofitNetwork Platform",
+    type: "Full stack development",
+    isNew: false,
+    disc: "Connects nonprofits with donors and volunteers, featuring event management, fundraising, and AI support",
+    techStack: ["Node.js", "Express", "MongoDB", "React", "TailwindCSS", "OpenAI API", "GitHub"]
+  }
+]
