@@ -91,7 +91,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="grid grid-cols-1 gap-4">
-              {["WORK", "ABOUT", "CONTACT"].map((item, index) => (
+              {["WORK", "ABOUT", "CONTACT" , ].map((item, index) => (
                 <motion.div
                   key={item}
                   variants={linkVariants}
